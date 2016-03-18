@@ -1,0 +1,17 @@
+﻿<link rel="stylesheet" href="/stylesheets/widgets/socialcontent.less" type="text/css">
+<div class="socialcontent-widget-wrapper {{Model.config.templateType}}">
+    <div id="instagram-widget" data-mz-socialcontent="{% json_attribute Model.config %}">
+        <div class="feed-intro-text">
+            <p>{{Model.config.introText}}</p>
+        </div>
+        <div class="feed-item-wrapper">
+            {% include "Widgets/social/socialcontent-feed-item"  %}
+        </div>
+    </div>
+    
+    <div id="loading-block" style="display:none;">
+        Loading...
+    </div>
+    <div id="loading-block-wrapper" style="display:none;"></div>
+</div>
+{% require_script "widgets/socialcontent" %}

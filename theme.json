@@ -6,7 +6,7 @@
         "isDesktop": true,
         "isMobile": false,
         "isTablet": false,
-        "name": "Core9",
+        "name": "Sociam media theme",
         "allowProduction": true
     },
     "editors": [
@@ -667,13 +667,19 @@
     },
   "widgets": [
      {
-            "displayName": "Instagram",
-            "displayTemplate": "social/instagram",
+            "displayName": "SocialContent",
+            "displayTemplate": "social/socialcontent",
             "editViewFields": [
               {
                 "anchor": "100%",
                 "fieldLabel": "Intro Text",
                 "name": "introText",
+                "xtype": "mz-input-text"
+              },
+              {
+                "anchor": "100%",
+                "fieldLabel": "Feed",
+                "name": "feed",
                 "xtype": "mz-input-text"
               },
               {

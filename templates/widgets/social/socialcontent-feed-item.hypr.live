@@ -13,14 +13,14 @@
         </div>
     </div>
   
-  {% item.link !== 'null' %} 
+  {% if item.properties.link !== 'null' %} 
     <div class="item-call-to-action">
-        <a href="{{ item.link }}" class="call-to-action-text">
+        <a href="{{ item.properties.link.mobile.value }}" class="call-to-action-text">
             <span>
                 Shop the Look
             </span>
         </a>
-        <a href="{{ item.link }}" class="call-to-action-icon">
+        <a href="{{ item.properties.link.mobile.value }}" class="call-to-action-icon">
           <img src="/resources/images/exernal_link.png"/>
         </a>
     </div>

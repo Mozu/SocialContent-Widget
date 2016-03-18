@@ -1,12 +1,12 @@
 {
-  "name": "mozu-core-theme",
-  "author": "Volusion, Inc.",
-  "description": "The core storefront theme for Mozu.",
+  "name": "Social media theme",
   "version": "9.2.1",
+  "description": "The core storefront theme for Mozu.",
   "repository": {
     "type": "git",
     "url": "https://github.com/mozu/core-theme.git"
   },
+  "author": "Volusion, Inc.",
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-contrib-compress": "^0.14.0",

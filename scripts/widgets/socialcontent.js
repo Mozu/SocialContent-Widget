@@ -35,20 +35,20 @@
             });
         };
          
-        var instagramRequest = Api.get('documentView', {
-                listName: 'instagramFeed@a0842dd'/* Hypr.getThemeSetting('') */,
+        var contentRequest = Api.get('documentView', {
+                listName: 'socialContentCollection@a0842dd'/* Hypr.getThemeSetting('') */,
                 startIndex: getTotalCount(),
                 pageSize: 5,
-                viewName: "instagramFeeds"
+                viewName: "socialContentFeeds"
         });
 
 
         var loadFeedItems = function () {
             $('#loading-block, #loading-block-wrapper').show();
-            instagramRequest.then(function (data) {
+            contentRequest.then(function (data) {
                 data = data.data;
                 $.each(data.items, function (index, item) {
-                    InstagramFeed.add(new FeedItem(item.properties));
+                    SocialContentFeed.add(new FeedItem(item.properties));
                 });
                 setStartIndex(data.startIndex);
                 setTotalCount(data.totalCount);
@@ -79,10 +79,10 @@
             }
         });
 
-        var InstagramFeed = new Backbone.Collection();
+        var SocialContentFeed = new Backbone.Collection();
 
-        var InstagramView = Backbone.MozuView.extend({
-            templateName: 'widgets/social/instagram-feed-item',
+        var SocialContentView = Backbone.MozuView.extend({
+            templateName: 'widgets/social/socialcontent-feed-item',
             getRenderContext: function () {
                 var context = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
 
@@ -97,7 +97,7 @@
 
         $(document).ready(function() {
 
-            var $instagramWidget = $('[data-mz-instagram] .feed-item-wrapper');
+            var $socialContentWidget = $('[data-mz-socialcontent] .feed-item-wrapper');
 
             var timeout = 0,
                 setTimeOut = function () {
@@ -107,11 +107,11 @@
                     timeout = 0;
                 };
             var getWidgetHeight = function () {
-                return $('#instagram-widget').height();
+                return $('#socialcontent-widget').height();
             };
 
-            if ($('.instagram-widget-wrapper').hasClass('isMobile')) {
-                $('.instagram-widget-wrapper').height($(window).height());
+            if ($('.socialcontent-widget-wrapper').hasClass('isMobile')) {
+                $('.socialcontent-widget-wrapper').height($(window).height());
 
                 //A workaround for some weird height issue
                 if ($(window).height() !== $('body').height()) {
@@ -120,8 +120,8 @@
                 }
             }
 
-            $('#instagram-widget').scroll(function () {
-                if ($('#instagram-widget').scrollTop() + $('#instagram-widget').height() > ($('.feed-item-wrapper').outerHeight() + $('.feed-intro-text').outerHeight())) {
+            $('#socialcontent-widget').scroll(function () {
+                if ($('#isocialcontent-widget').scrollTop() + $('#socialcontent-widget').height() > ($('.feed-item-wrapper').outerHeight() + $('.feed-intro-text').outerHeight())) {
                     if (timeout === 0) {
                         setTimeOut();
                         window.setTimeout(function (clearTimeout) {
@@ -132,16 +132,16 @@
                 }
             });
 
-            var instagramView = new InstagramView({
-                model: InstagramFeed,
-                el: $instagramWidget
+            var socialContentView = new SocialContentView({
+                model: SocialContentFeed,
+                el: $socialContentWidget
             });
 
-            InstagramFeed.on("add", function () {
-                instagramView.render();
+            SocialContentFeed.on("add", function () {
+                socialContentView.render();
             });
 
-            instagramView.render();
+            socialContentView.render();
 
             loadFeedItems();
 
