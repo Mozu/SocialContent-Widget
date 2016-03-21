@@ -14,17 +14,18 @@
     </div>
   
   {% if item.link !== null %} 
+    {% dump  Model %}
     {%if Model.config.templateType == 'isMobile' %}
-    <div class="item-call-to-action">
-        <a href="{{ item.link.mobile.value }}" class="call-to-action-text">
-            <span>
-                {{ item.link.linkText }}
-            </span>
-        </a>
-        <a href="{{ item.link.mobile.value }}" class="call-to-action-icon">
-          <img src="/resources/images/exernal_link.png"/>
-        </a>
-    </div>
+      <div class="item-call-to-action">
+          <a href="{{ item.link.mobile.value }}" class="call-to-action-text">
+              <span>
+                  {{ item.link.linkText }}
+              </span>
+          </a>
+          <a href="{{ item.link.mobile.value }}" class="call-to-action-icon">
+            <img src="/resources/images/exernal_link.png"/>
+          </a>
+      </div>
     {%else%}
       <a href="{{ item.link.desktop.value }}" class="call-to-action-text">
             <span>
