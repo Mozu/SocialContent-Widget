@@ -14,7 +14,7 @@
     </div>
   
   {% if item.link !== null %} 
-    {% dump  Model %}
+   
     {%if Model.config.templateType == 'isMobile' %}
       <div class="item-call-to-action">
           <a href="{{ item.link.mobile.value }}" class="call-to-action-text">
