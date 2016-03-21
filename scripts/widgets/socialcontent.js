@@ -3,6 +3,8 @@
         var _currentStartIndex = 0,
             _totalCount = 0;
 
+        var nameSpace = "a0842dd";
+
         var setStartIndex = function (startIdx) {
             _currentStartIndex = startIdx;
         };
@@ -26,6 +28,9 @@
         };
         
       
+        var getFeedName = function() {
+            return $("#socialcontent-widget").data("mz-socialcontent").feed;
+        }
 
         var fadeInFeedItems = function () {
             $('.feed-item-wrapper .feed-item > div').each(function (index, value) {
@@ -35,27 +40,40 @@
             });
         };
          
-        var contentRequest = Api.get('documentView', {
-                listName: 'socialContentCollection@a0842dd'/* Hypr.getThemeSetting('') */,
+        var getContentRequest = function(feedName) {
+           return Api.get('documentView', {
+                listName: 'socialContentCollection@'+nameSpace,
                 startIndex: getTotalCount(),
                 pageSize: 5,
-                viewName: "socialContentFeeds"
+                viewName: "socialContentFeeds",
+                filter:"properties.feeds eq "+feedName,
+                sortBy:"properties.createDate desc"
+            });
+       };
+
+        var feedRequest = Api.get('entity', {
+                listName: 'socialContentFeeds@'+nameSpace,
+                startIndex: 0,
+                pageSize: 1,
+                filter: "name eq "+getFeedName()
         });
 
 
         var loadFeedItems = function () {
             $('#loading-block, #loading-block-wrapper').show();
-            contentRequest.then(function (data) {
-                data = data.data;
-                $.each(data.items, function (index, item) {
-                    SocialContentFeed.add(new FeedItem(item.properties));
+            feedRequest.then(function(feedList){
+                getContentRequest(feedList.data.items[0].id).then(function (data) {
+                    data = data.data;
+                    $.each(data.items, function (index, item) {
+                        SocialContentFeed.add(new FeedItem(item.properties));
+                    });
+                    setStartIndex(data.startIndex);
+                    setTotalCount(data.totalCount);
+                    $('#loading-block, #loading-block-wrapper').hide();
+                }, function (jqxhr, settings, exception) {
+                    console.log(jqxhr);
+                    $('#loading-block, #loading-block-wrapper').hide();
                 });
-                setStartIndex(data.startIndex);
-                setTotalCount(data.totalCount);
-                $('#loading-block, #loading-block-wrapper').hide();
-            }, function (jqxhr, settings, exception) {
-                console.log(jqxhr);
-                $('#loading-block, #loading-block-wrapper').hide();
             });
         };
 

@@ -700,7 +700,7 @@
               }
             ],
             "icon": "/resources/admin/widgets/01_photo_text.png",
-            "id": "instagram-widget",
+            "id": "socialcontent-widget",
             "validPageTypes": [
                 "*"
             ]

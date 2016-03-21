@@ -1,6 +1,6 @@
 ﻿<link rel="stylesheet" href="/stylesheets/widgets/socialcontent.less" type="text/css">
 <div class="socialcontent-widget-wrapper {{Model.config.templateType}}">
-    <div id="instagram-widget" data-mz-socialcontent="{% json_attribute Model.config %}">
+    <div id="socialcontent-widget" data-mz-socialcontent="{% json_attribute Model.config %}">
         <div class="feed-intro-text">
             <p>{{Model.config.introText}}</p>
         </div>
