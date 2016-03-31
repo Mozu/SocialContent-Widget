@@ -3,7 +3,7 @@
         var _currentStartIndex = 0,
             _totalCount = 0;
 
-        var nameSpace = "a0842dd";
+        var nameSpace = "mzint";
 
         var setStartIndex = function (startIdx) {
             _currentStartIndex = startIdx;
