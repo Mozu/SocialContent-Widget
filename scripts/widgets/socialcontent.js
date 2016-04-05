@@ -1,74 +1,121 @@
 ﻿define(['modules/jquery-mozu', 'underscore', 'modules/api', 'modules/backbone-mozu', 'hyprlivecontext'],
     function ($, _, Api, Backbone, HyprLiveContext) {
         var _currentStartIndex = 0,
-            _totalCount = 0;
+            _totalCount = 0,
+            _templateData = "",
+            siteHostName,
+            _appExists;
 
-        var nameSpace = "mzint";
+        var nameSpace = "a0842dd";
 
-        var setStartIndex = function (startIdx) {
-            _currentStartIndex = startIdx;
-        };
-
-        var getStartIndex = function () {
-            if (typeof _currentStartIndex == 'undefined' || _currentStartIndex < -1) {
-                return 0;
+        var getTemplateData = function() {
+            if(typeof _templateData !== 'object') {
+                return _templateData = $('#socialcontent-widget').data('mz-socialcontent');
             }
-            return _currentStartIndex;
-        };
-
-        var setTotalCount = function (count) {
-            _totalCount = count;
-        };
-
-        var getTotalCount = function () {
-            if (typeof _totalCount == 'undefined' || _totalCount < -1) {
-                return 0;
-            }
-            return _totalCount;
-        };
-        
-      
-        var getFeedName = function() {
-            return $("#socialcontent-widget").data("mz-socialcontent").feed;
+            return _templateData;
         }
 
-        var fadeInFeedItems = function () {
-            $('.feed-item-wrapper .feed-item > div').each(function (index, value) {
-                window.setTimeout(function () {
-                    $(value).fadeIn(400);
-                }, 200 * index);
-            });
-        };
-         
-        var getContentRequest = function(feedName) {
+        var getFeedName = function() {
+            var data = $("#socialcontent-widget").data("mz-socialcontent");
+            if(typeof data === 'object') {
+                return data.feed;
+            }
+        }
+
+        var feedsRequest = Api.get('entityList', {
+            listName: 'socialContentFeeds@'+nameSpace,
+            startIndex: 0,
+            pageSize: 15
+        });
+
+        var mediaItemsRequest = function(feedId) {
            return Api.get('documentView', {
                 listName: 'socialContentCollection@'+nameSpace,
-                startIndex: getTotalCount(),
-                pageSize: 5,
-                viewName: "socialContentFeeds",
-                filter:"properties.feeds eq "+feedName,
-                sortBy:"properties.createDate desc"
+                startIndex: 0, //getTotalCount(),
+                pageSize: 15,
+                filter:"properties.feeds eq " + feedId,
+                viewName: "socialContentFeeds"
             });
        };
 
-        var feedRequest = Api.get('entity', {
-                listName: 'socialContentFeeds@'+nameSpace,
-                startIndex: 0,
-                pageSize: 1,
-                filter: "name eq "+getFeedName()
-        });
 
+        var mobileURLByLink = function(link) {
+            var URL = "";
+            switch (link.linkType) {
+                case 'cateogry' :
+                    URL = 'bf://mozu.com/categories/' + link.link;
+                    break;
+                case 'product' :
+                    URL = 'bf://mozu.com/products/' + link.link;
+                    break;
+                default :
+                    URL = link.link;
+                    break;
+            }
+        };
+
+        var desktopURLByLink = function(link) {
+            var URL = "";
+            switch (link.linkType) {
+                case 'cateogry' :
+                    URL = '/c/' + link.link;
+                    break;
+                case 'product' :
+                    URL = '/p/' + link.link;
+                    break;
+                default :
+                    URL = link.link;
+                    break;
+            }
+        };
+
+        var isMobileDevice = function() {
+            if( '/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i'.test(navigator.userAgent) ) {
+                return true;
+            }
+            return false;
+        }
+
+        var mobileAppExists = function() {
+            var appDeepLink = "bf://mozu.com/";
+            if (_appExists !== "boolean") {
+                $.get(appDeepLink, function (data) {
+                }).done(function () {
+                        return _appExists = true;
+                    })
+                    .fail(function () {
+                        return _appExists = false;
+                    });
+            }
+            return _appExists;
+        }
 
         var loadFeedItems = function () {
             $('#loading-block, #loading-block-wrapper').show();
-            feedRequest.then(function(feedList){
-                getContentRequest(feedList.data.items[0].id).then(function (data) {
+            feedsRequest.then(function(feedList){
+                var feedName = getFeedName(),
+                    feedId = 0;
+                $.each(feedList.data.items, function (index, value){
+                    if(value.name === feedName) {
+                        feedId = value.id;
+                        return false;
+                    }
+                })
+
+                mediaItemsRequest(feedId).then(function (data) {
                     data = data.data;
+
+                    // If Grid send in all item to spilt items by 'slides' aka rows
+                    //
+
                     $.each(data.items, function (index, item) {
-                        SocialContentFeed.add(new FeedItem(item.properties));
+                        //item.properties.activeLink =
+                        SocialContentFeed.add(new FeedItem(item));
                     });
-                    setStartIndex(data.startIndex);
-                    setTotalCount(data.totalCount);
+
+
+                    //setStartIndex(data.startIndex);
+                    //setTotalCount(data.totalCount);
                     $('#loading-block, #loading-block-wrapper').hide();
                 }, function (jqxhr, settings, exception) {
                     console.log(jqxhr);
@@ -78,28 +125,42 @@
         };
 
         var FeedItem = Backbone.MozuModel.extend({
-            defaults:{
+            defaults: {
                 data: {},
                 maxCharLength: 150
-            },
-            onClickCallToAction: function() {
-              
-            },
-            //captionEllipsis: function(text) {
-            //    var ret = text;
-            //    if (ret.length > get('maxCharLength')) {
-            //        ret = ret.substr(0, get('maxCharLength')-3) + "...";
-            //    }
-            //    return ret;
-            //},
-            initialize: function () {
-                //set("caption", this.captionEllipsis(get("caption")));
             }
         });
 
         var SocialContentFeed = new Backbone.Collection();
+        var SocialContentFeedItem = new Backbone.Collection();
 
-        var SocialContentView = Backbone.MozuView.extend({
+        //If grid use a SociaContentGrid view if a new Grid template
+
+
+        var SocialContentCarouselView = Backbone.MozuView.extend({
+            templateName: 'widgets/social/socialcontent-feed-carousel',
+            getRenderContext: function () {
+                var context = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
+
+                return context;
+            },
+            events: {
+                "click img": "clicked"
+            },
+            clicked: function(e){
+                e.preventDefault();
+                var cid = $(e.currentTarget).data("cid")
+                var item = this.model.get(cid);
+                loadModalWindow(item);
+                console.log(item);
+            },
+            render: function () {
+                Backbone.MozuView.prototype.render.apply(this, arguments);
+
+            }
+        });
+
+        var SocialContentMobileView = Backbone.MozuView.extend({
             templateName: 'widgets/social/socialcontent-feed-item',
             getRenderContext: function () {
                 var context = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
@@ -112,11 +173,37 @@
             }
         });
 
+        var SocialContentWindowView = Backbone.MozuView.extend({
+            templateName: 'widgets/social/socialcontent-model-window',
+            getRenderContext: function () {
+                var context = Backbone.MozuView.prototype.getRenderContext.apply(this, arguments);
+
+                return context;
+            },
+            render: function () {
+                Backbone.MozuView.prototype.render.apply(this, arguments);
+
+            }
+        });
+
+        var loadModalWindow = function(item) {
+            SocialContentFeedItem.reset();
+            SocialContentFeedItem.add(new FeedItem(item))
+            var socialContentWidowView = new SocialContentWindowView({
+                model: SocialContentFeedItem,
+                el: $('document')
+            });
+            socialContentWidowView.render();
+            //Int Model Window
+        };
+
 
         $(document).ready(function() {
 
-            var $socialContentWidget = $('[data-mz-socialcontent] .feed-item-wrapper');
 
+            var $socialContentWidget = $('[data-mz-socialcontent] .feed-item-wrapper');
+            var $document = $('document');
+            //var _siteHostName = HyprLiveContext;
             var timeout = 0,
                 setTimeOut = function () {
                     timeout = 500;
@@ -128,7 +215,7 @@
                 return $('#socialcontent-widget').height();
             };
 
-            if ($('.socialcontent-widget-wrapper').hasClass('isMobile')) {
+            /*if ($('.socialcontent-widget-wrapper').hasClass('isMobile')) {
                 $('.socialcontent-widget-wrapper').height($(window).height());
 
                 //A workaround for some weird height issue
@@ -148,20 +235,37 @@
                         loadFeedItems();
                     }
                 }
+            });*/
+
+            $('socialcontent-widget').on('click', '.call-to-action', function(){
+                var linkData = $(this).data('action-link'),
+                    URL;
+                if(typeof linkData === 'object'){
+                    if(getTemplateData() === 'isMobile' && mobileAppExists()) {
+                        URL = mobileURLByLink(linkData.mobileLink);
+                        window.location.href = URL;
+                    }
+                    URL = desktopURLByLink(linkData.desktop);
+                    window.location.href = URL;
+                }
             });
 
-            var socialContentView = new SocialContentView({
+            //If grid some Grid view and model and render acord.
+            var socialContentCarouselView = new SocialContentCarouselView({
                 model: SocialContentFeed,
                 el: $socialContentWidget
             });
 
+
+
             SocialContentFeed.on("add", function () {
-                socialContentView.render();
+                socialContentCarouselView.render();
             });
 
-            socialContentView.render();
+            socialContentCarouselView.render();
 
             loadFeedItems();
+            mobileAppExists();
 
         });
     }

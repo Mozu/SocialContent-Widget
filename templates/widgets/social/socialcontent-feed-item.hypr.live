@@ -13,29 +13,15 @@
         </div>
     </div>
   
-  {% if item.link !== null %} 
-   
-    {%if Model.config.templateType == 'isMobile' %}
-      <div class="item-call-to-action">
-          <a href="{{ item.link.mobile.value }}" class="call-to-action-text">
-              <span>
-                  {{ item.link.linkText }}
-              </span>
-          </a>
-          <a href="{{ item.link.mobile.value }}" class="call-to-action-icon">
-            <img src="/resources/images/exernal_link.png"/>
-          </a>
-      </div>
-    {%else%}
-      <a href="{{ item.link.desktop.value }}" class="call-to-action-text">
-            <span>
-                {{ item.link.linkText }}
-            </span>
-        </a>
-        <a href="{{ item.link.desktop.value }}" class="call-to-action-icon">
-          <img src="/resources/images/exernal_link.png"/>
-        </a>
-    {%endif%}
-  {% endif %}
+  {% if item.link.desktop.link !== 'null' || item.link.mobile.link !== 'null' %}
+       <a href="{{ item.link.desktop.link }}" data-action-link="{{ item.link }}" class="call-to-action call-to-action-text">
+             <span>
+                 {{ item.link.linkText }}
+             </span>
+         </a>
+         <a href="{{ item.link.desktop.value }}" class="call-to-action call-to-action-icon">
+           <img src="/resources/images/exernal_link.png"/>
+         </a>
+     {%endif%}
 </div>
 {% endfor %}

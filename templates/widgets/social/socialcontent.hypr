@@ -8,7 +8,6 @@
             {% include "Widgets/social/socialcontent-feed-item"  %}
         </div>
     </div>
-    
     <div id="loading-block" style="display:none;">
         Loading...
     </div>
