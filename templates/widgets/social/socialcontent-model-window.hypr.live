@@ -1,0 +1,27 @@
+{% for item in Model %}
+<div class="feed-item">
+    <div class="user-info-block">
+        <span class="user-avatar"><img src="{{ item.properties.profilePicture }}"/></span>
+        <span class="posted-by-text">Posted By</span>
+        <span class="user-name"> {{ item.properties.username }}</span>
+    </div>
+
+    <div class="photo-block">
+        <img src="{{ item.properties.images.standard_resolution.url }}"/>
+        <div class="photo-desc">
+            {{ item.properties.caption }}
+        </div>
+    </div>
+
+    {% if item.link.desktop.link !== 'null' || item.link.mobile.link !== 'null' %}
+    <a href="{{ item.properties.link.desktop.link }}" data-action-link="{{ item.properties.link }}" class="call-to-action call-to-action-text">
+             <span>
+                 {{ item.link.linkText }}
+             </span>
+    </a>
+    <a href="{{ item.properties.link.desktop.value }}" class="call-to-action call-to-action-icon">
+        <img src="/resources/images/exernal_link.png"/>
+    </a>
+    {%endif%}
+</div>
+{% endfor %}
