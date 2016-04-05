@@ -12,30 +12,39 @@
           {{ item.caption }}
         </div>
     </div>
-  
-  {% if item.link !== null %} 
-   
+
+
+    <div class="item-call-to-action call-to-action" data-action-link="{{ item.actionLinkString }}">
     {%if Model.config.templateType == 'isMobile' %}
-      <div class="item-call-to-action">
-          <a href="{{ item.link.mobile.value }}" class="call-to-action-text">
+
+          <a href="{{ item.actionLink.desktopLink.link }}" class="call-to-action-text">
               <span>
-                  {{ item.link.linkText }}
+                 {%if item.actionLink.actionText != "" %}
+                    {{ item.actionLink.actionText }}
+                {%else%}
+                    Shop this look.
+                {%endif%}
               </span>
           </a>
-          <a href="{{ item.link.mobile.value }}" class="call-to-action-icon">
+          <a href="{{ item.actionLink.desktopLink.link }}" class="call-to-action-icon">
             <img src="/resources/images/exernal_link.png"/>
           </a>
-      </div>
+
     {%else%}
-      <a href="{{ item.link.desktop.value }}" class="call-to-action-text">
+      <a href="{{ item.actionLink.desktopLink.link }}" class="call-to-action-text">
             <span>
-                {{ item.link.linkText }}
+                {%if item.actionLink.actionText != "" %}
+                    {{ item.actionLink.actionText }}
+                {%else%}
+                    Shop this look.
+                {%endif%}
             </span>
         </a>
-        <a href="{{ item.link.desktop.value }}" class="call-to-action-icon">
+        <a href="{{ item.actionLink.desktopLink.link }}" class="call-to-action-icon">
           <img src="/resources/images/exernal_link.png"/>
         </a>
     {%endif%}
-  {% endif %}
+    </div>
+
 </div>
 {% endfor %}

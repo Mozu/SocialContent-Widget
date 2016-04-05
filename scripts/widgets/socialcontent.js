@@ -1,9 +1,11 @@
 ﻿define(['modules/jquery-mozu', 'underscore', 'modules/api', 'modules/backbone-mozu', 'hyprlivecontext'],
     function ($, _, Api, Backbone, HyprLiveContext) {
         var _currentStartIndex = 0,
-            _totalCount = 0;
+            _totalCount = 0,
+            _hostName,
+            _appExists;
 
-        var nameSpace = "mzint";
+        var nameSpace = "a0842dd";
 
         var setStartIndex = function (startIdx) {
             _currentStartIndex = startIdx;
@@ -39,32 +41,55 @@
                 }, 200 * index);
             });
         };
-         
-        var getContentRequest = function(feedName) {
-           return Api.get('documentView', {
-                listName: 'socialContentCollection@'+nameSpace,
-                startIndex: getTotalCount(),
-                pageSize: 5,
-                viewName: "socialContentFeeds",
-                filter:"properties.feeds eq "+feedName,
-                sortBy:"properties.createDate desc"
-            });
-       };
 
-        var feedRequest = Api.get('entity', {
-                listName: 'socialContentFeeds@'+nameSpace,
-                startIndex: 0,
-                pageSize: 1,
-                filter: "name eq "+getFeedName()
+        var mediaItemsRequest = function(feedId) {
+            return Api.get('documentView', {
+                listName: 'socialContentCollection@'+nameSpace,
+                startIndex: 0, //getTotalCount(),
+                pageSize: 15,
+                filter:"properties.feeds eq " + feedId,
+                viewName: "socialContentFeeds"
+            });
+        };
+
+        var getTemplateData = function() {
+            if(typeof _templateData !== 'object') {
+                return _templateData = $('#socialcontent-widget').data('mz-socialcontent');
+            }
+            return _templateData;
+        }
+
+        var getFeedName = function() {
+            var data = $("#socialcontent-widget").data("mz-socialcontent");
+            if(typeof data === 'object') {
+                return data.feed;
+            }
+        }
+
+        var feedsRequest = Api.get('entityList', {
+            listName: 'socialContentFeeds@'+nameSpace,
+            startIndex: 0,
+            pageSize: 15
         });
 
 
         var loadFeedItems = function () {
             $('#loading-block, #loading-block-wrapper').show();
-            feedRequest.then(function(feedList){
-                getContentRequest(feedList.data.items[0].id).then(function (data) {
+            feedsRequest.then(function(feedList){
+                var feedName = getFeedName(),
+                    feedId = 0;
+                $.each(feedList.data.items, function (index, value){
+                    if(value.name === feedName) {
+                        feedId = value.id;
+                        return false;
+                    }
+                })
+
+                mediaItemsRequest(feedId).then(function (data) {
                     data = data.data;
                     $.each(data.items, function (index, item) {
+                        item.properties.actionLink = determineItemLink(item.properties.link, feedId);
+                        item.properties.actionLinkString = JSON.stringify(item.properties.actionLink);
                         SocialContentFeed.add(new FeedItem(item.properties));
                     });
                     setStartIndex(data.startIndex);
@@ -112,9 +137,79 @@
             }
         });
 
+        var mobileURLByLink = function(link) {
+            var URL = "";
+            switch (link.linkType) {
+                case 'categoryId' :
+                    URL = 'bf://mozu.com/categories/' + link.link;
+                    break;
+                case 'productId' :
+                    URL = 'bf://mozu.com/products/' + link.link;
+                    break;
+                default :
+                    URL = link.link;
+                    break;
+            }
+            return URL;
+        };
+
+        var desktopURLByLink = function(link) {
+            var URL = "";
+            switch (link.linkType) {
+                case 'categoryId' :
+                    URL = getHostname() + '/c/' + link.link;
+                    break;
+                case 'productId' :
+                    URL = getHostname() + '/p/' + link.link;
+                    break;
+                default :
+                    URL = link.link;
+                    break;
+            }
+            return URL;
+        };
+
+        var determineItemLink = function(link, id) {
+            var actionLink = {};
+            if(typeof link === 'object'){
+                $.each(link, function(index, value){
+                    if(value.associatedFeed === id) {
+                         actionLink = value;
+                        return false;
+                    }
+                })
+            }
+            return actionLink;
+        };
+
+        var isMobileDevice = function() {
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                return true;
+            }
+            return false;
+        };
+
+        var mobileAppExists = function() {
+            var appDeepLink = "bf://mozu.com/";
+            if (_appExists !== "boolean") {
+                $.get(appDeepLink, function (data) {
+                }).done(function () {
+                        return _appExists = true;
+                    })
+                    .fail(function () {
+                        return _appExists = false;
+                    });
+            }
+            return _appExists;
+        };
+
+        var getHostname = function(){
+            return _hostName = HyprLiveContext.locals.pageContext.secureHost;
+        }
+
 
         $(document).ready(function() {
-
+            getHostname();
             var $socialContentWidget = $('[data-mz-socialcontent] .feed-item-wrapper');
 
             var timeout = 0,
@@ -150,6 +245,20 @@
                 }
             });
 
+            $('#socialcontent-widget').on('click', '.call-to-action a', function(e){
+                e.preventDefault();
+                var linkData = $(this).parent('.call-to-action').data('action-link'),
+                    URL;
+                if(typeof linkData === 'object'){
+                    if(getTemplateData() === 'isMobile') {
+                        URL = mobileURLByLink(linkData.mobileLink);
+                        window.location.href = URL;
+                    }
+                    URL = desktopURLByLink(linkData.desktopLink);
+                    window.location.href = URL;
+                }
+            });
+
             var socialContentView = new SocialContentView({
                 model: SocialContentFeed,
                 el: $socialContentWidget
@@ -162,6 +271,8 @@
             socialContentView.render();
 
             loadFeedItems();
+
+
 
         });
     }
