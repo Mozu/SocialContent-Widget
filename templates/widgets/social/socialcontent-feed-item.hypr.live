@@ -13,7 +13,7 @@
         </div>
     </div>
 
-
+    {%if item.actionLink.desktopLink.link != 'null' ||  item.actionLink.mobileLink.link != 'null'%}
     <div class="item-call-to-action call-to-action" data-action-link="{{ item.actionLinkString }}">
     {%if Model.config.templateType == 'isMobile' %}
 
@@ -45,6 +45,7 @@
         </a>
     {%endif%}
     </div>
+    {%endif%}
 
 </div>
 {% endfor %}
