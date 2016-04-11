@@ -1,27 +1,70 @@
+<div class="feed-item-wrapper">
 {% for item in Model %}
+    {%dump item%}
 <div class="feed-item">
-    <div class="user-info-block">
-        <span class="user-avatar"><img src="{{ item.properties.profilePicture }}"/></span>
-        <span class="posted-by-text">Posted By</span>
-        <span class="user-name"> {{ item.properties.username }}</span>
-    </div>
+
 
     <div class="photo-block">
-        <img src="{{ item.properties.images.standard_resolution.url }}"/>
-        <div class="photo-desc">
-            {{ item.properties.caption }}
-        </div>
-    </div>
+        <img src="{{ item.images.standard_resolution.url }}"/>
 
-    {% if item.link.desktop.link !== 'null' || item.link.mobile.link !== 'null' %}
-    <a href="{{ item.properties.link.desktop.link }}" data-action-link="{{ item.properties.link }}" class="call-to-action call-to-action-text">
-             <span>
-                 {{ item.link.linkText }}
-             </span>
-    </a>
-    <a href="{{ item.properties.link.desktop.value }}" class="call-to-action call-to-action-icon">
-        <img src="/resources/images/exernal_link.png"/>
-    </a>
+    </div>
+    <div class="right-content-block">
+    {%if item.config.showUsername %}
+        <div class="user-info-block">
+            <span class="user-avatar"><img src="{{ item.profilePicture }}"/></span>
+            <span class="posted-by-text">Posted By</span>
+            <span class="user-name"> {{ item.username }}</span>
+        </div>
     {%endif%}
+
+    {%if item.config.showPostedTime %}
+        <div class="posted-time">
+            {{item.timeElapsed}};
+        </div>
+    {%endif%}
+
+    {%if item.config.showDescription == true %}
+        <div class="photo-desc">
+            {{ item.caption }}
+        </div>
+    {%endif%}
+
+    {%if item.config.showActionLink %}
+        {%if item.actionLink.desktopLink.link != 'null' ||  item.actionLink.mobileLink.link != 'null'%}
+        <div class="item-call-to-action call-to-action" data-action-link="{{ item.actionLinkString }}">
+            {%if Model.config.templateType == 'mobile' %}
+
+            <a href="{{ item.actionLink.desktopLink.link }}" class="call-to-action-text">
+              <span>
+                 {%if item.actionLink.actionText != "" %}
+                    {{ item.actionLink.actionText }}
+                {%else%}
+                    Shop this look.
+                {%endif%}
+              </span>
+            </a>
+            <a href="{{ item.actionLink.desktopLink.link }}" class="call-to-action-icon">
+                <img src="/resources/images/exernal_link.png"/>
+            </a>
+
+            {%else%}
+            <a href="{{ item.actionLink.desktopLink.link }}" class="call-to-action-text">
+            <span>
+                {%if item.actionLink.actionText != "" %}
+                    {{ item.actionLink.actionText }}
+                {%else%}
+                    Shop this look.
+                {%endif%}
+            </span>
+            </a>
+            <a href="{{ item.actionLink.desktopLink.link }}" class="call-to-action-icon">
+                <img src="/resources/images/exernal_link.png"/>
+            </a>
+            {%endif%}
+        </div>
+        {%endif%}
+    {%endif%}
+    </div>
+    {% endfor %}
+    </div>
 </div>
-{% endfor %}

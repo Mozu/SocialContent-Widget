@@ -9,6 +9,12 @@
         "name": "Sociam media theme",
         "allowProduction": true
     },
+  "editors": [
+    {
+      "id": "socialContentEditor",
+      "path": "socialContentEditor.js"
+    }
+  ],
     
   "widgets": [
      {
@@ -49,6 +55,16 @@
             "validPageTypes": [
                 "*"
             ]
-        }
+        },
+    {
+      "displayName": "Social Content 2",
+      "displayTemplate": "social/socialcontent",
+      "customEditor": "socialContentEditor",
+      "icon": "/resources/admin/widgets/widget-icon-socialcontent.png",
+      "id": "socialcontent-widget-2",
+      "validPageTypes": [
+        "*"
+      ]
+    }
     ]
 }

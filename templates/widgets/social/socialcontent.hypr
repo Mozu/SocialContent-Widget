@@ -1,5 +1,11 @@
-﻿<link rel="stylesheet" href="/stylesheets/widgets/socialcontent.less" type="text/css">
-<div class="socialcontent-widget-wrapper {{Model.config.templateType}}">
+﻿<link rel="stylesheet" href="/stylesheets/widgets/remodal.css" type="text/css">
+<link rel="stylesheet" href="/stylesheets/widgets/remodal-default-theme.css" type="text/css">
+<link rel="stylesheet" href="/stylesheets/widgets/jquery.bxslider.css" type="text/css">
+<link rel="stylesheet" href="/stylesheets/widgets/socialcontent.less" type="text/css">
+
+
+
+<div class="socialcontent-widget-wrapper {{Model.config.templateType}} scrollbar">
     <div id="socialcontent-widget" data-mz-socialcontent="{% json_attribute Model.config %}">
         <div class="feed-intro-text">
             <p>{{Model.config.introText}}</p>
@@ -13,4 +19,13 @@
     </div>
     <div id="loading-block-wrapper" style="display:none;"></div>
 </div>
+
+<div class="remodal" data-remodal-id="modal"></div>
+
+
+
+{% require_script "widgets/jquery.bxslider.min" %}
+{% require_script "widgets/remodal.min" %}
 {% require_script "widgets/socialcontent" %}
+
+
