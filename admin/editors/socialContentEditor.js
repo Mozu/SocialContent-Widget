@@ -375,9 +375,12 @@ if (!window.myEditors) {
             this.queryFeeds();
 
         },
+        hostname: function(){
+          return window.location.origin;
+        },
         queryFeeds: function() {
             var feedStore = this.feedStore,
-                requestUrl = 'https://t8988.sandbox.mozu-qa.com/admin/app/entities/read?list=socialcontentfeeds%40a0842dd&entityType=mzdb&view=&page=1&start=0&limit=50';
+                requestUrl = this.hostname() + '/admin/app/entities/read?list=socialcontentfeeds%mzint&entityType=mzdb&view=&page=1&start=0&limit=50';
                 try{
 
                     Ext.Ajax.request({

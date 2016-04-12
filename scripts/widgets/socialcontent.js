@@ -32,7 +32,7 @@
 
         var widgetProperties = getWidgetProperties();
 
-        var contentFeed = SocialContentFeeds.getSocialContentFeeds({'nameSpace': 'a0842dd', 'feedId': widgetProperties.associatedFeed});
+        var contentFeed = SocialContentFeeds.getSocialContentFeeds({'nameSpace': 'mzint', 'feedId': widgetProperties.associatedFeed});
 
 
 

@@ -2,25 +2,102 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe789b14-bf6a-48a8-82a9-28eb15c75ad2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/editors/socialContentEditor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/widgets/jquery.bxslider.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/widgets/jquery.easing.1.3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/widgets/remodal.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/widgets/socialcontent-feed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/widgets/socialcontent-helpers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheets/modules/common/scrollbar.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheets/widgets/jquery.bxslider.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheets/widgets/remodal-default-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheets/widgets/remodal.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/back-office.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/base/global.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/base/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/base/normalize.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/base/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/email.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-2column.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-carousel.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-container.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-formfieldgroup.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-pagecontent.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-pagewrapper.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-paginatedlist.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-sidebar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-slidebox.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-stack.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/layouts/l-tiles.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/breadcrumbs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/cart/cart-table.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/checkout/checkout-digital-credit.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/checkout/checkout-payment.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/checkout/checkout-store-credit.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/address-form.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/address-summary.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/bootstrap-popover.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/button.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/contact-selector.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/datepicker.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/datetimepicker.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/form-step.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/icon.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/item-listing.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/login-popover.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/message-bar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/order-list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/order-listing.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/order-summary.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/page-numbers.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/page-sort.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/page-title.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/paging-controls.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/payment-method.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/placeholder-polyfill.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/price.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/property-list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/scroll-nav.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/signup-popover.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/table.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/common/validation-message.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/error-detail.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/faceting-form.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/location/location-list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/my-account/account-addressbook.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/my-account/account-paymentmethods.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/my-account/account-settings.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/my-account/account-storecredit.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/my-account/return-form.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/my-account/rma-item.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/page-footer.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/page-header.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/page-header/cart-monitor.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/page-header/search-box.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/page-header/store-branding.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/page-header/utility-nav.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/product/price-stack.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/product/product-detail.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/product/product-images.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/product/product-list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/product/product-listing.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/product/product-options.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/site-nav.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/theme-utility-bar/header.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/modules/theme-utility-bar/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/pages/category.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/pages/checkout.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/pages/confirmation.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/pages/location.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/pages/login.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/pages/myaccount.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/pages/product.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/pages/splash-page.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/state/fades-in.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/state/is-crossedout.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/state/is-disabled.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/state/is-loading.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/state/is-required.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/state/is-saleprice.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/state/notices.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-item.hypr.live" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/editors/socialContentEditor.js" afterPath="$PROJECT_DIR$/admin/editors/socialContentEditor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/widgets/socialcontent.js" afterPath="$PROJECT_DIR$/scripts/widgets/socialcontent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/modules/common/scrollbar.less" afterPath="$PROJECT_DIR$/stylesheets/modules/common/scrollbar.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/storefront.less" afterPath="$PROJECT_DIR$/stylesheets/storefront.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/widgets/socialcontent.less" afterPath="$PROJECT_DIR$/stylesheets/widgets/socialcontent.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-carousel.hypr.live" afterPath="$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-carousel.hypr.live" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-grid.hypr.live" afterPath="$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-grid.hypr.live" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-mobile.hypr.live" afterPath="$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-mobile.hypr.live" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/widgets/social/socialcontent-model-window.hypr.live" afterPath="$PROJECT_DIR$/templates/widgets/social/socialcontent-model-window.hypr.live" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/widgets/social/socialcontent.hypr" afterPath="$PROJECT_DIR$/templates/widgets/social/socialcontent.hypr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme.json" afterPath="$PROJECT_DIR$/theme.json" />
     </list>
     <ignored path="SocialContent-Widget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,8 +121,28 @@
       <file leaf-file-name="socialcontent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/widgets/socialcontent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3619">
-              <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
+            <state relative-caret-position="510">
+              <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="storefront.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stylesheets/storefront.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="125" column="29" selection-start-line="125" selection-start-column="22" selection-end-line="125" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="socialcontent.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stylesheets/widgets/socialcontent.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2907">
+              <caret line="171" column="27" selection-start-line="171" selection-start-column="27" selection-end-line="171" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -54,50 +151,18 @@
       <file leaf-file-name="socialcontent-helpers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/widgets/socialcontent-helpers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="788">
+            <state relative-caret-position="805">
               <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="socialcontent-feed-grid.hypr.live" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-grid.hypr.live">
+      <file leaf-file-name="socialcontent-feed.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/widgets/socialcontent-feed.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="socialContentEditor.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/editors/socialContentEditor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="360" column="29" selection-start-line="360" selection-start-column="29" selection-end-line="360" selection-end-column="29" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="socialcontent.hypr" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/widgets/social/socialcontent.hypr">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="socialcontent-feed-mobile.hypr.live" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-mobile.hypr.live">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="238">
+              <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -108,8 +173,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
         <option value="CSS File" />
       </list>
     </option>
@@ -131,16 +196,20 @@
         <option value="$PROJECT_DIR$/admin/socialContent.js" />
         <option value="$PROJECT_DIR$/admin/editors/socialContent.js" />
         <option value="$PROJECT_DIR$/stylesheets/modules/common/scrollbar.css" />
-        <option value="$PROJECT_DIR$/stylesheets/storefront.less" />
-        <option value="$PROJECT_DIR$/templates/widgets/social/socialcontent.hypr" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/theme.json" />
-        <option value="$PROJECT_DIR$/stylesheets/widgets/socialcontent.less" />
         <option value="$PROJECT_DIR$/scripts/widgets/socialcontent-helpers.js" />
         <option value="$PROJECT_DIR$/templates/widgets/social/socialcontent-model-window.hypr.live" />
         <option value="$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-mobile.hypr.live" />
-        <option value="$PROJECT_DIR$/scripts/widgets/socialcontent.js" />
+        <option value="$PROJECT_DIR$/stylesheets/storefront.less" />
+        <option value="$PROJECT_DIR$/stylesheets/widgets/socialcontent.less" />
+        <option value="$PROJECT_DIR$/templates/widgets/social/socialcontent.hypr" />
+        <option value="$PROJECT_DIR$/templates/page.hypr.html" />
+        <option value="$PROJECT_DIR$/templates/page.hypr" />
+        <option value="$PROJECT_DIR$/stylesheets/common/scrollbar.css" />
+        <option value="$PROJECT_DIR$/stylesheets/modules/common/scrollbar.less" />
         <option value="$PROJECT_DIR$/admin/editors/socialContentEditor.js" />
+        <option value="$PROJECT_DIR$/scripts/widgets/socialcontent.js" />
       </list>
     </option>
   </component>
@@ -217,46 +286,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SocialContent-Widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SocialContent-Widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="social" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SocialContent-Widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SocialContent-Widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -274,6 +303,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aaron_jones\Projects\SocialContent\SocialContent-Widget\stylesheets\modules" />
       <recent name="C:\Users\aaron_jones\Projects\SocialContent\SocialContent-Widget\admin\editors" />
       <recent name="C:\Users\aaron_jones\Projects\SocialContent\SocialContent-Widget\stylesheets\widgets" />
       <recent name="C:\Users\aaron_jones\Projects\SocialContent\SocialContent-Widget\scripts\widgets" />
@@ -356,18 +386,18 @@
       <workItem from="1459535685478" duration="5194000" />
       <workItem from="1459778974279" duration="8799000" />
       <workItem from="1459797882412" duration="13040000" />
-      <workItem from="1459893382221" duration="67411000" />
+      <workItem from="1459893382221" duration="69916000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95982000" />
+    <option name="totallyTimeSpent" value="98487000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22034791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22034791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -687,38 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/widgets/socialcontent-feed.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stylesheets/storefront.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="7" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stylesheets/widgets/socialcontent.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="161" column="31" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-grid.hypr.live">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/widgets/social/socialcontent-model-window.hypr.live">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -727,10 +725,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/stylesheets/widgets/socialcontent.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2907">
+          <caret line="171" column="27" selection-start-line="171" selection-start-column="27" selection-end-line="171" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/page.hypr">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stylesheets/modules/common/scrollbar.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stylesheets/storefront.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="125" column="29" selection-start-line="125" selection-start-column="22" selection-end-line="125" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/editors/socialContentEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="385" column="38" selection-start-line="385" selection-start-column="38" selection-end-line="385" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/widgets/social/socialcontent.hypr">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="75" />
+        <state relative-caret-position="374">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -743,19 +783,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/editors/socialContentEditor.js">
+    <entry file="file://$PROJECT_DIR$/templates/widgets/social/socialcontent-feed-grid.hypr.live">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="360" column="29" selection-start-line="360" selection-start-column="29" selection-end-line="360" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/widgets/socialcontent-feed.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/widgets/socialcontent-helpers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="788">
+        <state relative-caret-position="805">
           <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="23" />
           <folding />
         </state>
@@ -763,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/widgets/socialcontent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3619">
-          <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
+        <state relative-caret-position="510">
+          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
           <folding />
         </state>
       </provider>
