@@ -12,6 +12,10 @@ This repository is structured to mirror the file structure of the [Mozu Core The
 
 This widget adds the following files:
 * `scripts/widgets/socialcontent.js`
+* `scripts/widgets/SocialContent/`
+* `scripts/widgets/socialcontent.js`
+* `scripts/widgets/socialcontent.js`
+* `scripts/widgets/socialcontent.js`
 * `stylesheets/widgets/socialcontent.less`
 * `templates/widgets/social/socialcontent.hypr`
 * `templates/widgets/social/socialcontent-feed-item.hypr.live`
