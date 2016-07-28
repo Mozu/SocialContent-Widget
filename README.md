@@ -12,12 +12,30 @@ This repository is structured to mirror the file structure of the [Mozu Core The
 
 This widget adds the following files:
 * `scripts/widgets/socialcontent.js`
+* `scripts/widgets/SocialContent/jquery.bxslider.min`
+* `scripts/widgets/SocialContent/remodal.min`
+* `scripts/widgets/SocialContent/socialcontent.js`
+* `scripts/widgets/SocialContent/socialcontent-feed.js`
+* `scripts/widgets/SocialContent/socialcontent-helpers.js`
+* `stylesheets/widgets/jquery.bxslider.less`
+* `stylesheets/widgets/remodel.less`
+* `stylesheets/widgets/remodal-default-theme.less`
 * `stylesheets/widgets/socialcontent.less`
+* `stylesheets/widgets/socialcontent-theme.less`
 * `templates/widgets/social/socialcontent.hypr`
-* `templates/widgets/social/socialcontent-feed-item.hypr.live`
+* `templates/widgets/social/socialcontent-feed-mobile.hypr.live`
+* `templates/widgets/social/socialcontent-feed-carousel.hypr.live`
+* `templates/widgets/social/socialcontent-feed-grid.hypr.live`
+* `templates/widgets/social/socialcontent-feed-window.hypr.live`
 
 And updates the following file:
 * `theme.json`
+
+Recommandtions 
+* `stylesheets/widgets/remodal-default-theme.less`
+	Use to edit/override styles for the destop grid and carousel views.
+* `stylesheets/widgets/remodal-default-theme.less`
+	Use to edit/override styles for Socail Content as a whole.	
 
 ## Update Your Theme
 

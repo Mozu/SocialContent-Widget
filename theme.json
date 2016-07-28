@@ -9,46 +9,22 @@
         "name": "Sociam media theme",
         "allowProduction": true
     },
-    
-  "widgets": [
+    "editors" : [ 
+      {
+      "id": "socialContentEditor",
+      "path": "socialContentEditor.js"
+      }
+    ],
+    "widgets": [
      {
-            "displayName": "Social Content",
-            "displayTemplate": "social/socialcontent",
-            "editViewFields": [
-              {
-                "anchor": "100%",
-                "fieldLabel": "Intro Text",
-                "name": "introText",
-                "xtype": "mz-input-text"
-              },
-              {
-                "anchor": "100%",
-                "fieldLabel": "Feed",
-                "name": "feed",
-                "xtype": "mz-input-text"
-              },
-              {
-                "anchor": "100%",
-                "fieldLabel": "Template Type",
-                "name": "templateType",
-                "store": [
-                  [
-                    "isStandardWidget",
-                    "Standard Widget"
-                  ],
-                  [
-                    "isMobile",
-                    "Standalone Mobile"
-                  ]
-                ],
-                "xtype": "mz-input-dropdown"
-              }
-            ],
-            "icon": "/resources/admin/widgets/widget-icon-socialcontent.png",
-            "id": "socialcontent-widget",
-            "validPageTypes": [
-                "*"
-            ]
-        }
+      "displayName": "Social Content",
+      "displayTemplate": "social/socialcontent",
+      "customEditor": "socialContentEditor",
+      "icon": "/resources/admin/widgets/widget-icon-socialcontent.png",
+      "id": "socialcontent-widget",
+      "validPageTypes": [
+        "*"
+        ]
+      }
     ]
 }
