@@ -45,7 +45,7 @@ define(['modules/jquery-mozu', 'underscore', 'modules/api', 'modules/backbone-mo
         var widgetProperties = getWidgetProperties();
 
         var contentFeed = SocialContentFeeds.getSocialContentFeeds({
-            'nameSpace': 'mzint',
+            'nameSpace': 'mozuadmin',
             'feedId': widgetProperties.associatedFeed
         });
 

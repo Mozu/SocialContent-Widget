@@ -4,17 +4,9 @@
 
 
     <div class="photo-block">
-        <img src="{{ item.images.standard_resolution.url }}"/>
-
+        <img src="{{ item.images }}"/>
     </div>
     <div class="right-content-block">
-    {%if item.config.showUsername %}
-        <div class="user-info-block">
-            <span class="user-avatar"><img src="{{ item.profilePicture }}"/></span>
-            <span class="posted-by-text">Posted By</span>
-            <span class="user-name"> {{ item.username }}</span>
-        </div>
-    {%endif%}
 
     {%if item.config.showPostedTime %}
         <div class="posted-time">

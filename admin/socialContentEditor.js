@@ -370,7 +370,7 @@ if (!window.myEditors) {
         },
         queryFeeds: function() {
             var feedStore = this.feedStore,
-                requestUrl = this.hostname() + '/admin/app/entities/read?list=socialcontentfeeds%40mzint&entityType=mzdb&view=&page=1&start=0&limit=50';
+                requestUrl = this.hostname() + '/admin/app/entities/read?list=socialContentFeeds%40mozuadmin&entityType=mzdb&view=&page=1&start=0&limit=50';
             try {
 
                 Ext.Ajax.request({
