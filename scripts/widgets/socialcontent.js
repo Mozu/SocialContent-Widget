@@ -7,7 +7,7 @@ define(['modules/jquery-mozu', 'underscore', 'modules/api', 'modules/backbone-mo
             _hostName,
             _appExists;
 
-        var nameSpace = "mzint";
+        var nameSpace = "mozuadmin";
 
         var setStartIndex = function(startIdx) {
             _currentStartIndex = startIdx;

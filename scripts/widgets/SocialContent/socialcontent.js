@@ -45,7 +45,7 @@ define(['modules/jquery-mozu', 'underscore', 'modules/api', 'modules/backbone-mo
         var widgetProperties = getWidgetProperties();
 
         var contentFeed = SocialContentFeeds.getSocialContentFeeds({
-            'nameSpace': 'mzint',
+            'nameSpace': 'mozuadmin',
             'feedId': widgetProperties.associatedFeed
         });
 
@@ -59,6 +59,7 @@ define(['modules/jquery-mozu', 'underscore', 'modules/api', 'modules/backbone-mo
                 
                 $.each(data.items, function(index, item) {
                     item.properties.actionLink = determineItemLink(item.properties.link, widgetProperties.associatedFeed);
+                    item.properties.actionLink = setActionLinkComplete(item.properties.actionLink);
                     item.properties.actionLinkString = JSON.stringify(item.properties.actionLink);
                     item.config = widgetProperties;
                     item.timeElapsed = SocialContentHelpers.timeElapsed(item.properties.createDate);
@@ -92,6 +93,11 @@ define(['modules/jquery-mozu', 'underscore', 'modules/api', 'modules/backbone-mo
             return actionLink;
         };
 
+        var setActionLinkComplete = function(actionLink) {
+            actionLink.desktopLink.completeURL = SocialContentHelpers.desktopURLByLink(actionLink.desktopLink);
+            actionLink.mobileLink.completeURL = SocialContentHelpers.mobileURLByLink(actionLink.mobileLink, widgetProperties.mzProtocol);
+            return actionLink;
+        }
 
         var FeedItem = Backbone.MozuModel.extend({
             defaults: {
