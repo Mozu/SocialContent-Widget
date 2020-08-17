@@ -306,9 +306,9 @@ if (!window.myEditors) {
                                     defaultType: 'checkboxfield',
                                     flex: 1,
                                     items: [{
-                                        boxLabel: 'Username',
-                                        name: 'showUsername',
-                                        id: 'showUsername'
+                                        boxLabel: 'Description',
+                                        name: 'showDescription',
+                                        id: 'showDescription'
                                     }]
                                 }, {
                                     xtype: 'fieldcontainer',
@@ -328,15 +328,6 @@ if (!window.myEditors) {
                                     pack: 'start'
                                 },
                                 items: [{
-                                    xtype: 'fieldcontainer',
-                                    defaultType: 'checkboxfield',
-                                    flex: 1,
-                                    items: [{
-                                        boxLabel: 'Description',
-                                        name: 'showDescription',
-                                        id: 'showDescription'
-                                    }]
-                                }, {
                                     xtype: 'fieldcontainer',
                                     defaultType: 'checkboxfield',
                                     flex: 1,
@@ -369,8 +360,9 @@ if (!window.myEditors) {
             return window.location.origin;
         },
         queryFeeds: function() {
-            var feedStore = this.feedStore,
-                requestUrl = this.hostname() + '/admin/app/entities/read?list=socialContentFeeds%40mozuadmin&entityType=mzdb&view=&page=1&start=0&limit=50';
+            var self = this,
+            feedStore = this.feedStore,
+            requestUrl = this.hostname() + '/admin/app/entities/read?list=socialContentFeeds%40mozuadmin&entityType=mzdb&view=&page=1&start=0&limit=50';
             try {
 
                 Ext.Ajax.request({
@@ -383,7 +375,9 @@ if (!window.myEditors) {
                                 id: feed.item.id,
                                 name: feed.item.name
                             });
-                        })
+                        });
+
+                        self.down('[name=associatedFeed]').setValue(self.ownerCt.widgetData.associatedFeed);
                     },
                     failure: function(err) {
                         console.log(err);
